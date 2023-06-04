@@ -1,13 +1,16 @@
-﻿namespace LanChat;
+﻿using LanChat.ViewModel;
+
+namespace LanChat.View;
 
 public partial class MainPage : ContentPage
 {
 	int count = 0;
 
-	public MainPage()
+	public MainPage(MainViewModel viewModel/*Передать зависимость ViewModel*/)
 	{
 		InitializeComponent();
-	}
+        BindingContext = viewModel;
+    }
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{

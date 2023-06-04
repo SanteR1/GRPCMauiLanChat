@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LanChat.View;
+using LanChat.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace LanChat;
 
@@ -18,7 +20,8 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
-		return builder.Build();
+        builder.Services.AddSingleton<MainViewModel>();
+        builder.Services.AddSingleton<MainPage>();
+        return builder.Build();
 	}
 }
